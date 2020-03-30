@@ -1,0 +1,45 @@
+package intercambioelementos;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int num = CantidadElemento();
+        String pal [] = Palabras(num);
+        SwitchElement(pal);
+    }
+    
+    public static int CantidadElemento()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Cantidad de elementos: ");
+        int cantidad = sc.nextInt();
+        return cantidad;
+    }
+    
+    public static String [] Palabras(int n)
+    {
+        String lista [] = new String[n];
+        Scanner sc = new Scanner(System.in);
+        
+        for(int i = 0; i < n; i++)
+        {
+            lista[i] = sc.next();
+        }
+        
+        return lista;
+    }
+    
+    public static void SwitchElement(String [] p)
+    {
+        System.out.println("Lista Modificada:");
+        String aux = p[0];
+        for (int i = 0; i < p.length; i++)
+        {
+            p[0] = p[p.length-1];
+            p[p.length-1]=aux;
+            System.out.println(p[i]);
+        }
+    }
+}
